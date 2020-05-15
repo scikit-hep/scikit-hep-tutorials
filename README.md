@@ -3,7 +3,7 @@
 Repository collecting tutorials, demos and examples on how to exploit
 the Scikit-HEP ecosystem packages.
 
-### Local notebook testing and build
+## Local notebook testing and build
 
 To install locally, make sure miniconda is installed then run from this
 directory:
@@ -23,5 +23,4 @@ To build the notebooks:
 ```bash
 jupyter-book build .
 ```
-
 
