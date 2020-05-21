@@ -1,0 +1,15 @@
+name: scikit-hep-tutorials
+channels:
+  - conda-forge
+dependencies:
+  - python=3.8
+  - sphinx=2.4.4
+  - pip
+  - pandas
+  - matplotlib
+  - root
+  - uproot
+  - boost-histogram
+  - pip:
+    - jupyter-book>=0.7.0b
+    - git+https://github.com/scikit-hep/aghast#subdirectory=python
