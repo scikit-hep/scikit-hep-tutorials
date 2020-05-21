@@ -1,0 +1,29 @@
+name: CD
+
+on:
+  push:
+    branches: master
+
+jobs:
+  website:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Install Conda Environment
+      run: conda env create
+
+    - name: Generate outputs
+      run: |
+        eval "$(conda shell.bash hook)"
+        conda activate scikit-hep-tutorials
+        jupyter-book build .
+
+    - name: Deploy to pages
+      if: success() && github.event_name == 'push' && github.ref == 'refs/heads/master'
+      uses: peaceiris/actions-gh-pages@v3.5.9
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./_build/html
+    
