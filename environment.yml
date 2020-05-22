@@ -12,4 +12,6 @@ dependencies:
   - boost-histogram
   - pip:
     - jupyter-book>=0.7.0b
+    - hepunits
+    - particle
     - git+https://github.com/scikit-hep/aghast#subdirectory=python

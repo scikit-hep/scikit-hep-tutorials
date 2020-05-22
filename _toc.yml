@@ -1,2 +1,9 @@
 - file: content/intro
+
+- header: Basics
+- file: content/basics/README
+- file: content/basics/units
+  title: The HEP System of Units
+
+- header: Histograms
 - file: content/aghast
