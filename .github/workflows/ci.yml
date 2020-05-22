@@ -18,6 +18,7 @@ jobs:
       run: |
         eval "$(conda shell.bash hook)"
         conda activate scikit-hep-tutorials
+        python -m ipykernel install --user --name scikit-hep-tutorials
         jupyter-book build .
 
     - name: Deploy to pages
