@@ -2,6 +2,14 @@
 title: Scikit-HEP Tutorials
 author: The Scikit-HEP Admins and contributors
 logo: logo.png
+exclude_patterns: ["README.md"]
+
+repository:
+  url: https://github.com/scikit-hep/scikit-hep-tutorials
+
+launch_buttons:
+  notebook_interface: jupyterlab
+  binderhub_url: https://mybinder.org
 
 latex:
   latex_documents:

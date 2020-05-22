@@ -21,6 +21,6 @@ Only the activate and lab lines need to be run once this is installed. Use
 To build the notebooks:
 
 ```bash
-jupyter-book build .
+jupyter book build .
 ```
 
