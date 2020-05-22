@@ -24,3 +24,21 @@ To build the notebooks:
 jupyter book build .
 ```
 
+If you want to enable the code formatter button to put things into Black
+format, run the following in the environment:
+
+```bash
+conda install -c conda-forge jupyterlab_code_formatter black isort nodejs
+jupyter labextension install @ryantam626/jupyterlab_code_formatter
+jupyter serverextension enable --py jupyterlab_code_formatter
+```
+
+You will now have a new button and a new command in the command pallete.
+
+And the spell checker (can be found in the Lab UI as well, under extensions):
+
+```bash
+jupyter labextension install @ijmbarr/jupyterlab_spellchecker
+```
+
+You may be asked to rebuild.

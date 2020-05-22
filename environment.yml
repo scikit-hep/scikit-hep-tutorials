@@ -10,6 +10,7 @@ dependencies:
   - root
   - uproot
   - boost-histogram
+  - jupyterlab
   - pip:
     - jupyter-book>=0.7.0b
     - hepunits
