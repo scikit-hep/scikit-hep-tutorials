@@ -16,3 +16,4 @@ dependencies:
     - hepunits
     - particle
     - git+https://github.com/scikit-hep/aghast#subdirectory=python
+    - scikit-hep-testdata
