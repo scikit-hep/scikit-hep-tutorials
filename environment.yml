@@ -8,11 +8,8 @@ dependencies:
   - pandas
   - matplotlib
   - root
-  - uproot
-  - boost-histogram
   - jupyterlab
   - pip:
-    - jupyter-book>=0.7.0b
-    - hepunits
-    - particle
+    - jupyter-book>=0.9.0
+    - scikit-hep>=1.3.0
     - git+https://github.com/scikit-hep/aghast#subdirectory=python
