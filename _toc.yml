@@ -1,6 +1,6 @@
 - file: content/intro
 
-- header: Basics
+- part: Basics
 - file: content/basics/README
 - file: content/basics/units
   title: The HEP System of Units
