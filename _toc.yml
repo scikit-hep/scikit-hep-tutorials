@@ -1,9 +1,10 @@
 - file: content/intro
 
 - part: Basics
-- file: content/basics/README
-- file: content/basics/units
-  title: The HEP System of Units
-
-- header: Histograms
-- file: content/aghast
+  chapters:
+  - file: content/basics/README
+  - file: content/basics/units
+    title: The HEP System of Units
+- part: Histograms
+  chapters:
+  - file: content/aghast
