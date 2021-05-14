@@ -1,11 +1,24 @@
 # Book settings
 title: Scikit-HEP Tutorials
-author: The Scikit-HEP Admins and contributors
+author: The Scikit-HEP Admins
+copyright : 2021
 logo: logo.png
 exclude_patterns: ["README.md"]
 
 repository:
   url: https://github.com/scikit-hep/scikit-hep-tutorials
+  branch: master
+  path_to_book: content
+
+# Force re-execution of notebooks on each build
+execute:
+  execute_notebooks: force
+
+html:
+  home_page_in_navbar         : true
+  use_edit_page_button        : true
+  use_repository_button       : true
+  use_issues_button           : true
 
 launch_buttons:
   notebook_interface: jupyterlab

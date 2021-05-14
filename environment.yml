@@ -3,7 +3,6 @@ channels:
   - conda-forge
 dependencies:
   - python=3.9
-  - sphinx=2.4.4
   - pip
   - pandas
   - matplotlib
