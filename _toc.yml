@@ -1,10 +1,11 @@
-- file: content/intro
+- file: content/intro.md
 
 - part: Basics
   chapters:
-  - file: content/basics/README
-  - file: content/basics/units
-    title: The HEP System of Units
+    - file: content/basics/README.md
+    - file: content/basics/units.ipynb
+      title: The HEP System of Units
+
 - part: Histograms
   chapters:
-  - file: content/aghast
+    - file: content/aghast.ipynb
