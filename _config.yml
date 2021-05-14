@@ -8,7 +8,6 @@ exclude_patterns: ["README.md"]
 repository:
   url: https://github.com/scikit-hep/scikit-hep-tutorials
   branch: master
-  path_to_book: content
 
 # Force re-execution of notebooks on each build
 execute:
