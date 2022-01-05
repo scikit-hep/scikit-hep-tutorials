@@ -1,0 +1,975 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Playing with the HEP system of units &#8212; Scikit-HEP Tutorials</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Saving and loading Histograms" href="../aghast.html" />
+    <link rel="prev" title="Tutorials on basics" href="README.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Scikit-HEP Tutorials</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Welcome to Scikit-HEP Tutorials!
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Basics
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="README.html">
+   Tutorials on basics
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   The HEP System of Units
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Histograms
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../aghast.html">
+   Saving and loading Histograms
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/content/basics/units.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/scikit-hep/scikit-hep-tutorials"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/scikit-hep/scikit-hep-tutorials/issues/new?title=Issue%20on%20page%20%2Fcontent/basics/units.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/scikit-hep/scikit-hep-tutorials/edit/master/content/basics/units.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/scikit-hep/scikit-hep-tutorials/master?urlpath=lab/tree/content/basics/units.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hepunits-the-hep-system-of-units">
+   hepunits - The HEP system of units
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#basic-usage">
+     <strong>
+      Basic usage
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#quick-time-of-flight-study">
+     <strong>
+      Quick time-of-flight study
+     </strong>
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <!-- Table of contents that is only displayed when printing the page -->
+    <div id="jb-print-docs-body" class="onlyprint">
+        <h1>Playing with the HEP system of units</h1>
+        <!-- Table of contents -->
+        <div id="print-main-content" class="row">
+            <div class="col-12 col-md-12 pl-md-5 pr-md-5">
+            <div id="jb-print-toc">
+                
+                <div>
+                    <h2> Contents </h2>
+                </div>
+                <nav aria-label="Page">
+                    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hepunits-the-hep-system-of-units">
+   hepunits - The HEP system of units
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#basic-usage">
+     <strong>
+      Basic usage
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#quick-time-of-flight-study">
+     <strong>
+      Quick time-of-flight study
+     </strong>
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                </nav>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="playing-with-the-hep-system-of-units">
+<h1>Playing with the HEP system of units<a class="headerlink" href="#playing-with-the-hep-system-of-units" title="Permalink to this headline">¶</a></h1>
+<p><strong>Or, an intro to the <code class="docutils literal notranslate"><span class="pre">hepunits</span></code> package while performing some time-of-flight studies</strong>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The URL for this page may change, the general design for this tutorial series is in flux.</p>
+</div>
+<p>Scikit-HEP packages used:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/scikit-hep/hepunits"><code class="docutils literal notranslate"><span class="pre">hepunits</span></code></a></p></li>
+<li><p><a class="reference external" href="https://github.com/scikit-hep/particle"><code class="docutils literal notranslate"><span class="pre">Particle</span></code></a></p></li>
+</ul>
+<p><strong>Authors</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/eduardo-rodrigues/">Eduardo Rodrigues</a></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="hepunits-the-hep-system-of-units">
+<h2>hepunits - The HEP system of units<a class="headerlink" href="#hepunits-the-hep-system-of-units" title="Permalink to this headline">¶</a></h2>
+<p>The package <code class="docutils literal notranslate"><span class="pre">hepunits</span></code> collects the most commonly used units and constants in the
+HEP System of Units, which differs from the international system of units (aka SI units) by scaling factors
+for what are the basic units.
+The HEP system of units is based on the following:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:right head"><p>Quantity</p></th>
+<th class="text-align:right head"><p>Name</p></th>
+<th class="text-align:right head"><p>Unit</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:right"><p>Length</p></td>
+<td class="text-align:right"><p>millimeter</p></td>
+<td class="text-align:right"><p>mm</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>Time</p></td>
+<td class="text-align:right"><p>nanosecond</p></td>
+<td class="text-align:right"><p>ns</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>Energy</p></td>
+<td class="text-align:right"><p>Mega electron Volt</p></td>
+<td class="text-align:right"><p>MeV</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>Positron charge</p></td>
+<td class="text-align:right"><p>eplus</p></td>
+<td class="text-align:right"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>Temperature</p></td>
+<td class="text-align:right"><p>kelvin</p></td>
+<td class="text-align:right"><p>K</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>Amount of substance</p></td>
+<td class="text-align:right"><p>mole</p></td>
+<td class="text-align:right"><p>mol</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>Luminous intensity</p></td>
+<td class="text-align:right"><p>candela</p></td>
+<td class="text-align:right"><p>cd</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>Plane angle</p></td>
+<td class="text-align:right"><p>radian</p></td>
+<td class="text-align:right"><p>rad</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>Solid angle</p></td>
+<td class="text-align:right"><p>steradian</p></td>
+<td class="text-align:right"><p>sr</p></td>
+</tr>
+</tbody>
+</table>
+<p>Note: no need to make use of sophisticated packages (e.g. as in AstroPy) since we basically never need to change systems of units (we never use ergs as energy, for example ;-)).</p>
+<div class="section" id="basic-usage">
+<h3><strong>Basic usage</strong><a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h3>
+<p><strong>Basic usage is straightforward</strong>, though it may be confusing at first.
+Remember, all variables are written wrt to the units:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">hepunits</span> <span class="kn">import</span> <span class="n">GeV</span><span class="p">,</span> <span class="n">MeV</span><span class="p">,</span> <span class="n">cd</span><span class="p">,</span> <span class="n">eplus</span><span class="p">,</span> <span class="n">kelvin</span><span class="p">,</span> <span class="n">mm</span><span class="p">,</span> <span class="n">mol</span><span class="p">,</span> <span class="n">ns</span><span class="p">,</span> <span class="n">rad</span><span class="p">,</span> <span class="n">sr</span>
+
+<span class="n">mm</span> <span class="o">==</span> <span class="n">ns</span> <span class="o">==</span> <span class="n">MeV</span> <span class="o">==</span> <span class="n">eplus</span> <span class="o">==</span> <span class="n">kelvin</span> <span class="o">==</span> <span class="n">mol</span> <span class="o">==</span> <span class="n">cd</span> <span class="o">==</span> <span class="n">rad</span> <span class="o">==</span> <span class="n">sr</span> <span class="o">==</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">GeV</span> <span class="o">==</span> <span class="mi">1000</span> <span class="o">*</span> <span class="n">MeV</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ol class="simple">
+<li><p>No error checking is implemented, since units are not objects, rather simple numbers.
+Expressions such as <code class="docutils literal notranslate"><span class="pre">1*ns</span> <span class="pre">+</span> <span class="pre">1*mm</span></code> produce no error.</p></li>
+<li><p>Units help improving the readability of code and making formula explicit (although correctness must be still manually checked).</p></li>
+</ol>
+</div>
+<p>Add two quantities with different length units:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">hepunits</span> <span class="kn">import</span> <span class="n">units</span> <span class="k">as</span> <span class="n">u</span>
+
+<span class="mi">1</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">meter</span> <span class="o">+</span> <span class="mi">5</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">cm</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1050.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>The result is in HEP units, so mm. Indeed, for example <code class="docutils literal notranslate"><span class="pre">u.meter</span> <span class="pre">==</span> <span class="pre">1000</span> <span class="pre">==</span> <span class="pre">1000</span> <span class="pre">*</span> <span class="pre">u.mm</span></code>.</p>
+<p>Rather obtain the result in meters:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">1</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">meter</span> <span class="o">+</span> <span class="mi">5</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">cm</span><span class="p">)</span> <span class="o">/</span> <span class="n">u</span><span class="o">.</span><span class="n">meter</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.05
+</pre></div>
+</div>
+</div>
+</div>
+<p>Do you need to play a bit more to get a proper feeling? This next (non-academic) exercise should help you …</p>
+</div>
+<div class="section" id="quick-time-of-flight-study">
+<h3><strong>Quick time-of-flight study</strong><a class="headerlink" href="#quick-time-of-flight-study" title="Permalink to this headline">¶</a></h3>
+<p>Let’s try to play with units in a meaningful way, in a kind of exercise that physicists encounter. Imagine you are investigating time-of-flight (ToF) detectors for particle identification. The time it takes a particle of velocity <span class="math notranslate nohighlight">\(\beta = v/c= pc/E\)</span> to travel a distance <span class="math notranslate nohighlight">\(L\)</span> is given by</p>
+<div class="math notranslate nohighlight">
+\[\mathrm{ToF} = \frac{L}{c \beta}\]</div>
+<p>It results that the mass <span class="math notranslate nohighlight">\(m\)</span> of the particle can be determined from</p>
+<div class="math notranslate nohighlight">
+\[m = \frac{p}{c}\sqrt{\frac{c^2 \mathrm{ToF}^2}{L^2}-1}\]</div>
+<p>provided the path length <span class="math notranslate nohighlight">\(L\)</span> and the momentum <span class="math notranslate nohighlight">\(p\)</span> can be measured, say, by a tracking system.</p>
+<p>What are typical ToF differences say for (charged) kaons and pions?
+It is practical to perform the calculation as</p>
+<div class="math notranslate nohighlight">
+\[\Delta \mathrm{ToF} = \frac{L}{c}(\frac{1}{\beta_1} - \frac{1}{\beta_2})\,,\]</div>
+<p>with <span class="math notranslate nohighlight">\(\frac{1}{\beta} = \sqrt{1+m^2c^2/p^2}\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">hepunits</span> <span class="kn">import</span> <span class="n">GeV</span><span class="p">,</span> <span class="n">c_light</span><span class="p">,</span> <span class="n">meter</span><span class="p">,</span> <span class="n">ns</span><span class="p">,</span> <span class="n">ps</span>
+
+
+<span class="k">def</span> <span class="nf">ToF</span><span class="p">(</span><span class="n">m</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">p</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">L</span><span class="p">:</span><span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Time-of-Flight = particle path length L / (c * β)&quot;&quot;&quot;</span>
+    <span class="n">one_over_β</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span>
+        <span class="mi">1</span> <span class="o">+</span> <span class="n">m</span> <span class="o">*</span> <span class="n">m</span> <span class="o">/</span> <span class="p">(</span><span class="n">p</span> <span class="o">*</span> <span class="n">p</span><span class="p">)</span>
+    <span class="p">)</span>  <span class="c1"># no c factors here because m and p given without them, hence c&#39;s cancel out ;-)</span>
+    <span class="k">return</span> <span class="n">L</span> <span class="o">*</span> <span class="n">one_over_β</span> <span class="o">/</span> <span class="n">c_light</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For convenience, get hold of data for the proton, <span class="math notranslate nohighlight">\(K^+\)</span> and <span class="math notranslate nohighlight">\(\pi^+\)</span> taken from the PDG using the <a class="reference external" href="https://github.com/scikit-hep/particle"><code class="docutils literal notranslate"><span class="pre">Particle</span></code> package</a>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">particle.literals</span> <span class="kn">import</span> <span class="n">K_plus</span><span class="p">,</span> <span class="n">pi_plus</span><span class="p">,</span> <span class="n">proton</span>  <span class="c1"># particle name literals</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Calculate the difference in ToF between 10 GeV kaons and pions travelling over 10 meters:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">delta</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">ToF</span><span class="p">(</span><span class="n">K_plus</span><span class="o">.</span><span class="n">mass</span><span class="p">,</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">GeV</span><span class="p">,</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">meter</span><span class="p">)</span> <span class="o">-</span> <span class="n">ToF</span><span class="p">(</span><span class="n">pi_plus</span><span class="o">.</span><span class="n">mass</span><span class="p">,</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">GeV</span><span class="p">,</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">meter</span><span class="p">)</span>
+<span class="p">)</span> <span class="o">/</span> <span class="n">ps</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;At 10 GeV, Delta-TOF(K-pi) over 10 meters = </span><span class="si">{</span><span class="n">delta</span><span class="si">:</span><span class="s2">.4</span><span class="si">}</span><span class="s2"> ps&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>At 10 GeV, Delta-TOF(K-pi) over 10 meters = 37.37 ps
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s get a bit fancier:</p>
+<ul class="simple">
+<li><p>Compare protons, kaons and pions.</p></li>
+<li><p>Look at the ToF difference versus momentum.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">5.1</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">)</span> <span class="o">*</span> <span class="n">GeV</span>
+
+<span class="n">delta1</span> <span class="o">=</span> <span class="p">(</span><span class="n">ToF</span><span class="p">(</span><span class="n">K_plus</span><span class="o">.</span><span class="n">mass</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">*</span> <span class="n">meter</span><span class="p">)</span> <span class="o">-</span> <span class="n">ToF</span><span class="p">(</span><span class="n">pi_plus</span><span class="o">.</span><span class="n">mass</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">*</span> <span class="n">meter</span><span class="p">))</span> <span class="o">/</span> <span class="n">ps</span>
+<span class="n">delta2</span> <span class="o">=</span> <span class="p">(</span><span class="n">ToF</span><span class="p">(</span><span class="n">proton</span><span class="o">.</span><span class="n">mass</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">*</span> <span class="n">meter</span><span class="p">)</span> <span class="o">-</span> <span class="n">ToF</span><span class="p">(</span><span class="n">K_plus</span><span class="o">.</span><span class="n">mass</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">*</span> <span class="n">meter</span><span class="p">))</span> <span class="o">/</span> <span class="n">ps</span>
+<span class="n">delta3</span> <span class="o">=</span> <span class="p">(</span><span class="n">ToF</span><span class="p">(</span><span class="n">proton</span><span class="o">.</span><span class="n">mass</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">*</span> <span class="n">meter</span><span class="p">)</span> <span class="o">-</span> <span class="n">ToF</span><span class="p">(</span><span class="n">pi_plus</span><span class="o">.</span><span class="n">mass</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">*</span> <span class="n">meter</span><span class="p">))</span> <span class="o">/</span> <span class="n">ps</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">p</span> <span class="o">/</span> <span class="n">GeV</span><span class="p">,</span> <span class="n">delta1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;K-$\pi$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">p</span> <span class="o">/</span> <span class="n">GeV</span><span class="p">,</span> <span class="n">delta2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;p-K&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">p</span> <span class="o">/</span> <span class="n">GeV</span><span class="p">,</span> <span class="n">delta3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;p-$\pi$&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
+    <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;p [GeV]&quot;</span><span class="p">,</span>
+    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;$\Delta$ ToF [ps]&quot;</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Time-of-flight difference for a 1 meter path&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="n">bottom</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/units_21_0.png" src="../../_images/units_21_0.png" />
+</div>
+</div>
+<p>Taking now an example that could be relevant to LHCb conditions - detector timing resolution requirement is getting tough!:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">10.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span> <span class="o">*</span> <span class="n">GeV</span>
+<span class="n">delta</span> <span class="o">=</span> <span class="p">(</span><span class="n">ToF</span><span class="p">(</span><span class="n">K_plus</span><span class="o">.</span><span class="n">mass</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">meter</span><span class="p">)</span> <span class="o">-</span> <span class="n">ToF</span><span class="p">(</span><span class="n">pi_plus</span><span class="o">.</span><span class="n">mass</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">meter</span><span class="p">))</span> <span class="o">/</span> <span class="n">ps</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">p</span> <span class="o">/</span> <span class="n">GeV</span><span class="p">,</span> <span class="n">delta</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
+    <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;p [GeV]&quot;</span><span class="p">,</span>
+    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;$\Delta$ ToF [ps]&quot;</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Time-of-flight difference for a 10 meter path&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/units_23_0.png" src="../../_images/units_23_0.png" />
+</div>
+</div>
+<p>For short flight distances protons, kaons and pions become indistinguishable, as expected:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">5.1</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">)</span> <span class="o">*</span> <span class="n">GeV</span>
+<span class="n">s1</span> <span class="o">=</span> <span class="n">ToF</span><span class="p">(</span><span class="n">K_plus</span><span class="o">.</span><span class="n">mass</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="mf">1.38</span> <span class="o">*</span> <span class="n">meter</span><span class="p">)</span> <span class="o">/</span> <span class="n">ToF</span><span class="p">(</span><span class="n">pi_plus</span><span class="o">.</span><span class="n">mass</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="mf">1.38</span> <span class="o">*</span> <span class="n">meter</span><span class="p">)</span>
+<span class="n">s3</span> <span class="o">=</span> <span class="n">ToF</span><span class="p">(</span><span class="n">proton</span><span class="o">.</span><span class="n">mass</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="mf">1.38</span> <span class="o">*</span> <span class="n">meter</span><span class="p">)</span> <span class="o">/</span> <span class="n">ToF</span><span class="p">(</span><span class="n">pi_plus</span><span class="o">.</span><span class="n">mass</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="mf">1.38</span> <span class="o">*</span> <span class="n">meter</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">p</span> <span class="o">/</span> <span class="n">GeV</span><span class="p">,</span> <span class="n">s1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;K-$\pi$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">p</span> <span class="o">/</span> <span class="n">GeV</span><span class="p">,</span> <span class="n">s3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;p-$\pi$&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
+    <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;p [GeV]&quot;</span><span class="p">,</span>
+    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;ToF/ToF($\pi$)&quot;</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Relative Time-of-flight for a 1 meter flight&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="n">bottom</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="mf">2.2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/units_25_0.png" src="../../_images/units_25_0.png" />
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "scikit-hep-tutorials"
+        },
+        kernelOptions: {
+            kernelName: "scikit-hep-tutorials",
+            path: "./content/basics"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'scikit-hep-tutorials'</script>
+
+              </div>
+              
+            </div>
+        </div>
+    </div>
+    <div id="main-content" class="row noprint">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="playing-with-the-hep-system-of-units">
+<h1>Playing with the HEP system of units<a class="headerlink" href="#playing-with-the-hep-system-of-units" title="Permalink to this headline">¶</a></h1>
+<p><strong>Or, an intro to the <code class="docutils literal notranslate"><span class="pre">hepunits</span></code> package while performing some time-of-flight studies</strong>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The URL for this page may change, the general design for this tutorial series is in flux.</p>
+</div>
+<p>Scikit-HEP packages used:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/scikit-hep/hepunits"><code class="docutils literal notranslate"><span class="pre">hepunits</span></code></a></p></li>
+<li><p><a class="reference external" href="https://github.com/scikit-hep/particle"><code class="docutils literal notranslate"><span class="pre">Particle</span></code></a></p></li>
+</ul>
+<p><strong>Authors</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/eduardo-rodrigues/">Eduardo Rodrigues</a></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="hepunits-the-hep-system-of-units">
+<h2>hepunits - The HEP system of units<a class="headerlink" href="#hepunits-the-hep-system-of-units" title="Permalink to this headline">¶</a></h2>
+<p>The package <code class="docutils literal notranslate"><span class="pre">hepunits</span></code> collects the most commonly used units and constants in the
+HEP System of Units, which differs from the international system of units (aka SI units) by scaling factors
+for what are the basic units.
+The HEP system of units is based on the following:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:right head"><p>Quantity</p></th>
+<th class="text-align:right head"><p>Name</p></th>
+<th class="text-align:right head"><p>Unit</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:right"><p>Length</p></td>
+<td class="text-align:right"><p>millimeter</p></td>
+<td class="text-align:right"><p>mm</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>Time</p></td>
+<td class="text-align:right"><p>nanosecond</p></td>
+<td class="text-align:right"><p>ns</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>Energy</p></td>
+<td class="text-align:right"><p>Mega electron Volt</p></td>
+<td class="text-align:right"><p>MeV</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>Positron charge</p></td>
+<td class="text-align:right"><p>eplus</p></td>
+<td class="text-align:right"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>Temperature</p></td>
+<td class="text-align:right"><p>kelvin</p></td>
+<td class="text-align:right"><p>K</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>Amount of substance</p></td>
+<td class="text-align:right"><p>mole</p></td>
+<td class="text-align:right"><p>mol</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>Luminous intensity</p></td>
+<td class="text-align:right"><p>candela</p></td>
+<td class="text-align:right"><p>cd</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>Plane angle</p></td>
+<td class="text-align:right"><p>radian</p></td>
+<td class="text-align:right"><p>rad</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>Solid angle</p></td>
+<td class="text-align:right"><p>steradian</p></td>
+<td class="text-align:right"><p>sr</p></td>
+</tr>
+</tbody>
+</table>
+<p>Note: no need to make use of sophisticated packages (e.g. as in AstroPy) since we basically never need to change systems of units (we never use ergs as energy, for example ;-)).</p>
+<div class="section" id="basic-usage">
+<h3><strong>Basic usage</strong><a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h3>
+<p><strong>Basic usage is straightforward</strong>, though it may be confusing at first.
+Remember, all variables are written wrt to the units:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">hepunits</span> <span class="kn">import</span> <span class="n">GeV</span><span class="p">,</span> <span class="n">MeV</span><span class="p">,</span> <span class="n">cd</span><span class="p">,</span> <span class="n">eplus</span><span class="p">,</span> <span class="n">kelvin</span><span class="p">,</span> <span class="n">mm</span><span class="p">,</span> <span class="n">mol</span><span class="p">,</span> <span class="n">ns</span><span class="p">,</span> <span class="n">rad</span><span class="p">,</span> <span class="n">sr</span>
+
+<span class="n">mm</span> <span class="o">==</span> <span class="n">ns</span> <span class="o">==</span> <span class="n">MeV</span> <span class="o">==</span> <span class="n">eplus</span> <span class="o">==</span> <span class="n">kelvin</span> <span class="o">==</span> <span class="n">mol</span> <span class="o">==</span> <span class="n">cd</span> <span class="o">==</span> <span class="n">rad</span> <span class="o">==</span> <span class="n">sr</span> <span class="o">==</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">GeV</span> <span class="o">==</span> <span class="mi">1000</span> <span class="o">*</span> <span class="n">MeV</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ol class="simple">
+<li><p>No error checking is implemented, since units are not objects, rather simple numbers.
+Expressions such as <code class="docutils literal notranslate"><span class="pre">1*ns</span> <span class="pre">+</span> <span class="pre">1*mm</span></code> produce no error.</p></li>
+<li><p>Units help improving the readability of code and making formula explicit (although correctness must be still manually checked).</p></li>
+</ol>
+</div>
+<p>Add two quantities with different length units:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">hepunits</span> <span class="kn">import</span> <span class="n">units</span> <span class="k">as</span> <span class="n">u</span>
+
+<span class="mi">1</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">meter</span> <span class="o">+</span> <span class="mi">5</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">cm</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1050.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>The result is in HEP units, so mm. Indeed, for example <code class="docutils literal notranslate"><span class="pre">u.meter</span> <span class="pre">==</span> <span class="pre">1000</span> <span class="pre">==</span> <span class="pre">1000</span> <span class="pre">*</span> <span class="pre">u.mm</span></code>.</p>
+<p>Rather obtain the result in meters:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">1</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">meter</span> <span class="o">+</span> <span class="mi">5</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">cm</span><span class="p">)</span> <span class="o">/</span> <span class="n">u</span><span class="o">.</span><span class="n">meter</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.05
+</pre></div>
+</div>
+</div>
+</div>
+<p>Do you need to play a bit more to get a proper feeling? This next (non-academic) exercise should help you …</p>
+</div>
+<div class="section" id="quick-time-of-flight-study">
+<h3><strong>Quick time-of-flight study</strong><a class="headerlink" href="#quick-time-of-flight-study" title="Permalink to this headline">¶</a></h3>
+<p>Let’s try to play with units in a meaningful way, in a kind of exercise that physicists encounter. Imagine you are investigating time-of-flight (ToF) detectors for particle identification. The time it takes a particle of velocity <span class="math notranslate nohighlight">\(\beta = v/c= pc/E\)</span> to travel a distance <span class="math notranslate nohighlight">\(L\)</span> is given by</p>
+<div class="math notranslate nohighlight">
+\[\mathrm{ToF} = \frac{L}{c \beta}\]</div>
+<p>It results that the mass <span class="math notranslate nohighlight">\(m\)</span> of the particle can be determined from</p>
+<div class="math notranslate nohighlight">
+\[m = \frac{p}{c}\sqrt{\frac{c^2 \mathrm{ToF}^2}{L^2}-1}\]</div>
+<p>provided the path length <span class="math notranslate nohighlight">\(L\)</span> and the momentum <span class="math notranslate nohighlight">\(p\)</span> can be measured, say, by a tracking system.</p>
+<p>What are typical ToF differences say for (charged) kaons and pions?
+It is practical to perform the calculation as</p>
+<div class="math notranslate nohighlight">
+\[\Delta \mathrm{ToF} = \frac{L}{c}(\frac{1}{\beta_1} - \frac{1}{\beta_2})\,,\]</div>
+<p>with <span class="math notranslate nohighlight">\(\frac{1}{\beta} = \sqrt{1+m^2c^2/p^2}\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">hepunits</span> <span class="kn">import</span> <span class="n">GeV</span><span class="p">,</span> <span class="n">c_light</span><span class="p">,</span> <span class="n">meter</span><span class="p">,</span> <span class="n">ns</span><span class="p">,</span> <span class="n">ps</span>
+
+
+<span class="k">def</span> <span class="nf">ToF</span><span class="p">(</span><span class="n">m</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">p</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">L</span><span class="p">:</span><span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Time-of-Flight = particle path length L / (c * β)&quot;&quot;&quot;</span>
+    <span class="n">one_over_β</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span>
+        <span class="mi">1</span> <span class="o">+</span> <span class="n">m</span> <span class="o">*</span> <span class="n">m</span> <span class="o">/</span> <span class="p">(</span><span class="n">p</span> <span class="o">*</span> <span class="n">p</span><span class="p">)</span>
+    <span class="p">)</span>  <span class="c1"># no c factors here because m and p given without them, hence c&#39;s cancel out ;-)</span>
+    <span class="k">return</span> <span class="n">L</span> <span class="o">*</span> <span class="n">one_over_β</span> <span class="o">/</span> <span class="n">c_light</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For convenience, get hold of data for the proton, <span class="math notranslate nohighlight">\(K^+\)</span> and <span class="math notranslate nohighlight">\(\pi^+\)</span> taken from the PDG using the <a class="reference external" href="https://github.com/scikit-hep/particle"><code class="docutils literal notranslate"><span class="pre">Particle</span></code> package</a>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">particle.literals</span> <span class="kn">import</span> <span class="n">K_plus</span><span class="p">,</span> <span class="n">pi_plus</span><span class="p">,</span> <span class="n">proton</span>  <span class="c1"># particle name literals</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Calculate the difference in ToF between 10 GeV kaons and pions travelling over 10 meters:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">delta</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">ToF</span><span class="p">(</span><span class="n">K_plus</span><span class="o">.</span><span class="n">mass</span><span class="p">,</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">GeV</span><span class="p">,</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">meter</span><span class="p">)</span> <span class="o">-</span> <span class="n">ToF</span><span class="p">(</span><span class="n">pi_plus</span><span class="o">.</span><span class="n">mass</span><span class="p">,</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">GeV</span><span class="p">,</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">meter</span><span class="p">)</span>
+<span class="p">)</span> <span class="o">/</span> <span class="n">ps</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;At 10 GeV, Delta-TOF(K-pi) over 10 meters = </span><span class="si">{</span><span class="n">delta</span><span class="si">:</span><span class="s2">.4</span><span class="si">}</span><span class="s2"> ps&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>At 10 GeV, Delta-TOF(K-pi) over 10 meters = 37.37 ps
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s get a bit fancier:</p>
+<ul class="simple">
+<li><p>Compare protons, kaons and pions.</p></li>
+<li><p>Look at the ToF difference versus momentum.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">5.1</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">)</span> <span class="o">*</span> <span class="n">GeV</span>
+
+<span class="n">delta1</span> <span class="o">=</span> <span class="p">(</span><span class="n">ToF</span><span class="p">(</span><span class="n">K_plus</span><span class="o">.</span><span class="n">mass</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">*</span> <span class="n">meter</span><span class="p">)</span> <span class="o">-</span> <span class="n">ToF</span><span class="p">(</span><span class="n">pi_plus</span><span class="o">.</span><span class="n">mass</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">*</span> <span class="n">meter</span><span class="p">))</span> <span class="o">/</span> <span class="n">ps</span>
+<span class="n">delta2</span> <span class="o">=</span> <span class="p">(</span><span class="n">ToF</span><span class="p">(</span><span class="n">proton</span><span class="o">.</span><span class="n">mass</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">*</span> <span class="n">meter</span><span class="p">)</span> <span class="o">-</span> <span class="n">ToF</span><span class="p">(</span><span class="n">K_plus</span><span class="o">.</span><span class="n">mass</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">*</span> <span class="n">meter</span><span class="p">))</span> <span class="o">/</span> <span class="n">ps</span>
+<span class="n">delta3</span> <span class="o">=</span> <span class="p">(</span><span class="n">ToF</span><span class="p">(</span><span class="n">proton</span><span class="o">.</span><span class="n">mass</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">*</span> <span class="n">meter</span><span class="p">)</span> <span class="o">-</span> <span class="n">ToF</span><span class="p">(</span><span class="n">pi_plus</span><span class="o">.</span><span class="n">mass</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">*</span> <span class="n">meter</span><span class="p">))</span> <span class="o">/</span> <span class="n">ps</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">p</span> <span class="o">/</span> <span class="n">GeV</span><span class="p">,</span> <span class="n">delta1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;K-$\pi$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">p</span> <span class="o">/</span> <span class="n">GeV</span><span class="p">,</span> <span class="n">delta2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;p-K&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">p</span> <span class="o">/</span> <span class="n">GeV</span><span class="p">,</span> <span class="n">delta3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;p-$\pi$&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
+    <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;p [GeV]&quot;</span><span class="p">,</span>
+    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;$\Delta$ ToF [ps]&quot;</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Time-of-flight difference for a 1 meter path&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="n">bottom</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/units_21_0.png" src="../../_images/units_21_0.png" />
+</div>
+</div>
+<p>Taking now an example that could be relevant to LHCb conditions - detector timing resolution requirement is getting tough!:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">10.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span> <span class="o">*</span> <span class="n">GeV</span>
+<span class="n">delta</span> <span class="o">=</span> <span class="p">(</span><span class="n">ToF</span><span class="p">(</span><span class="n">K_plus</span><span class="o">.</span><span class="n">mass</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">meter</span><span class="p">)</span> <span class="o">-</span> <span class="n">ToF</span><span class="p">(</span><span class="n">pi_plus</span><span class="o">.</span><span class="n">mass</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">meter</span><span class="p">))</span> <span class="o">/</span> <span class="n">ps</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">p</span> <span class="o">/</span> <span class="n">GeV</span><span class="p">,</span> <span class="n">delta</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
+    <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;p [GeV]&quot;</span><span class="p">,</span>
+    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;$\Delta$ ToF [ps]&quot;</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Time-of-flight difference for a 10 meter path&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/units_23_0.png" src="../../_images/units_23_0.png" />
+</div>
+</div>
+<p>For short flight distances protons, kaons and pions become indistinguishable, as expected:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">5.1</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">)</span> <span class="o">*</span> <span class="n">GeV</span>
+<span class="n">s1</span> <span class="o">=</span> <span class="n">ToF</span><span class="p">(</span><span class="n">K_plus</span><span class="o">.</span><span class="n">mass</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="mf">1.38</span> <span class="o">*</span> <span class="n">meter</span><span class="p">)</span> <span class="o">/</span> <span class="n">ToF</span><span class="p">(</span><span class="n">pi_plus</span><span class="o">.</span><span class="n">mass</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="mf">1.38</span> <span class="o">*</span> <span class="n">meter</span><span class="p">)</span>
+<span class="n">s3</span> <span class="o">=</span> <span class="n">ToF</span><span class="p">(</span><span class="n">proton</span><span class="o">.</span><span class="n">mass</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="mf">1.38</span> <span class="o">*</span> <span class="n">meter</span><span class="p">)</span> <span class="o">/</span> <span class="n">ToF</span><span class="p">(</span><span class="n">pi_plus</span><span class="o">.</span><span class="n">mass</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="mf">1.38</span> <span class="o">*</span> <span class="n">meter</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">p</span> <span class="o">/</span> <span class="n">GeV</span><span class="p">,</span> <span class="n">s1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;K-$\pi$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">p</span> <span class="o">/</span> <span class="n">GeV</span><span class="p">,</span> <span class="n">s3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;p-$\pi$&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
+    <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;p [GeV]&quot;</span><span class="p">,</span>
+    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;ToF/ToF($\pi$)&quot;</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Relative Time-of-flight for a 1 meter flight&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="n">bottom</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="mf">2.2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/units_25_0.png" src="../../_images/units_25_0.png" />
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "scikit-hep-tutorials"
+        },
+        kernelOptions: {
+            kernelName: "scikit-hep-tutorials",
+            path: "./content/basics"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'scikit-hep-tutorials'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="README.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Tutorials on basics</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../aghast.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Saving and loading Histograms</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By The Scikit-HEP Admins<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
