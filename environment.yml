@@ -12,3 +12,4 @@ dependencies:
   - scikit-hep>=3.0.0
   - pip:
     - git+https://github.com/scikit-hep/aghast#subdirectory=python
+    - scikit-hep-testdata
